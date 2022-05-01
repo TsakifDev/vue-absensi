@@ -1,39 +1,58 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+<div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card mt-5">
+                        <div class="card-body">
+                            <h3 class="text-center">Absensi Kehadiran</h3>
+                             <!-- form validasi -->
+                            <form @submit.prevent="handleSubmit">
+                              <div class="form-group mt-2">
+                                    <label>Nama</label>
+                                    <input class="form-control" placeholder="Nama lengkap anda" type="name" v-model="nama" required>
+                              </div>
+                              <div class="form-group mt-2">
+                                    <label for="pekerjaan">Jenis Kelamin</label>
+                                    <select class="form-control" v-model="gender">
+                                        <option value="laki">Laki-Laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label>Kelas</label>
+                                    <select class="form-control" v-model="kelas">
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mt-3 mb-3">
+                                    <input class="btn btn-primary" type="submit" value="Submit">
+                                </div>
+                            </form>
+                            <div class="p-3 rounded-2 border border-secondary">
+                              <p>Nama : {{nama}}</p>
+                              <p>Jenis kelamin : {{gender}}</p>
+                              <p>Kelas : {{kelas}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  data(){
+    return {
+      nama: '',
+      gender: '',
+      kelas: ''
+    }
   }
 }
 </script>
